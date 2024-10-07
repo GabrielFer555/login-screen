@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Gabriel Fernandes"> 
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./node_modules/notyf/notyf.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+    <main class="container">
+        <div class="box">
+            <h1>Login</h1>
+            <form action="" method="post" id="form" autocomplete="off">
+                <div class="form-control">
+                    <label for="email"> <i class="fa-solid fa-envelope fa-sm"></i> Email:</label>
+                    <input type="email" id="email" placeholder="test@gmail.com" required name="email" aria-label="email"
+                        class="input">
+                </div>
+                <div class="form-control">
+                    <label for="password"><i class="fa-solid fa-lock fa-sm"> </i> Password:</label>
+                    <input type="password" placeholder="123@helloWorld" required name="password" id="password" class="input">
+                </div>
+                <div id="links">
+                    <button type="submit" class="btn">Logar</button>
+                    <a href="">Esqueceu sua senha?</a>
+                    <div id="checkbox">
+                        <input type="checkbox" name="lembrarme" id="lembrarme">
+                        <label for="lembrarme">Lembrar-me</label>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </main>
+    <footer></footer>
+    <script src="./node_modules/notyf/notyf.min.js"></script>
+    <script>
+        const emailInput = document.getElementById("email");
+        const lembrarme = document.getElementById("lembrarme")
+        const form = document.getElementById("form")
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            if (lembrarme.checked) {
+                localStorage.setItem("email", emailInput.value)
+                localStorage.setItem("lembrarme", "true")
+            } else {
+                localStorage.removeItem("email");
+                localStorage.removeItem("lembrarme");
+            }
+           form.submit()
+        })
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem("lembrarme") === "true") {
+                emailInput.value = localStorage.getItem("email")
+                lembrarme.checked = true;
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
