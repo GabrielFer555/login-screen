@@ -1,4 +1,4 @@
-# Projeto-RazorPage-Padaria
+# Projeto-Login-Screen
 
 Tela de login responsiva, desafio proposto por professor Boris de criar uma tela de login com responsividade. O principio de desafio é entregar uma tela com HTML e CSS, com a inclusão do Javascript sendo voluntária.
 
